@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Port Meridian — An Open-World Crime Game</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<canvas id="game" aria-label="Port Meridian: an open-world crime game. Explore the city on foot or by car, take jobs, and stay ahead of the MPD."></canvas>
+<p id="status" role="status" aria-live="polite"></p>
+
+<div id="hud">
+  <div id="hud-top">
+    <div id="hud-money">$250</div>
+    <div id="hud-clock">18:32</div>
+  </div>
+  <div id="hud-health"><div id="hud-health-fill"></div></div>
+  <div id="hud-mission"></div>
+  <div id="hud-objective"></div>
+  <div id="hud-timer"></div>
+  <div id="hud-hold"><div id="hud-hold-fill"></div><span>Cracking the vault… hold E</span></div>
+</div>
+<div id="hud-stars"></div>
+<div id="hud-bottom">
+  <span id="hud-car"></span>
+  <span id="hud-speed"></span>
+  <span id="hud-ammo"></span>
+</div>
+<div id="toast"></div>
+<div id="hud-help">WASD move / drive · Mouse aim · Click shoot · E enter car · R reload · M next job · P pause · H help</div>
+
+<div id="title-screen" class="overlay">
+  <div class="panel">
+    <h1>PORT<br>MERIDIAN</h1>
+    <p class="tagline">An open-world crime game. One city. One driver. No way back.</p>
+    <p class="story">Rook Calloway is out of prison and back in Port Meridian — a sun-soaked harbor city
+    run by fixers, gangs and the MPD. Fixer Mara Voss has five jobs for him. Steal cars, run
+    drops, settle scores at the docks, and pull the Meridian Trust job — if the heat lets him.</p>
+    <div class="controls">
+      <span><b>WASD</b> move / drive</span><span><b>Mouse</b> aim</span><span><b>Click</b> shoot</span>
+      <span><b>E</b> steal / exit car</span><span><b>R</b> reload</span><span><b>Shift</b> sprint</span>
+      <span><b>M</b> next job</span><span><b>P</b> pause</span>
+    </div>
+    <div class="buttons">
+      <button id="btn-start">▶ Start a new game</button>
+      <button id="btn-continue" style="display:none">Continue</button>
+    </div>
+    <p class="fine">Progress saves automatically. Wanted stars cool off if you lie low. The MPD does not forget a cop car rammed.</p>
+  </div>
+</div>
+
+<div id="pause-screen" class="overlay hidden">
+  <div class="panel">
+    <h2>PAUSED</h2>
+    <p class="story">Port Meridian waits for no one — except right now.</p>
+    <div class="buttons">
+      <button id="btn-resume">Resume</button>
+      <button id="btn-save">Save progress</button>
+      <button id="btn-mute">🔊 Sound: On</button>
+      <button id="btn-title">Quit to title</button>
+    </div>
+  </div>
+</div>
+
+<div id="end-screen" class="overlay hidden">
+  <div class="panel">
+    <h2 id="end-title">BUSTED</h2>
+    <p class="story" id="end-text"></p>
+    <div class="buttons">
+      <button id="btn-respawn">Get patched up &amp; go again</button>
+    </div>
+  </div>
+</div>
+
+<div id="complete-screen" class="overlay hidden">
+  <div class="panel">
+    <h2>THE MERIDIAN JOB — DONE</h2>
+    <p class="story">Five jobs. One clean getaway. Rook Calloway owns Port Meridian now —
+    Mara Voss is square, the Harbor Kings are finished, and the MPD is still looking for a driver
+    who was never there. Free roam is open: taxi fares, joyrides, and whatever heat you want to stir up.</p>
+    <div class="buttons">
+      <button id="btn-free-roam">Keep playing — free roam</button>
+    </div>
+  </div>
+</div>
+
+<div id="help-screen" class="overlay hidden">
+  <div class="panel">
+    <h2>HOW TO PLAY</h2>
+    <p class="story">Walk up to any parked or slow car and press <b>E</b> to steal it — the MPD will notice.
+    Crimes raise your wanted stars; lie low and they cool off. Press <b>M</b> to take Mara's next job.
+    Gold pins mark your objective. Taxi fares appear once you have wheels and two jobs done.
+    Your progress saves automatically after every job.</p>
+    <div class="buttons">
+      <button id="btn-help-close">Close</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./js/game.js"></script>
+</body>
+</html>
